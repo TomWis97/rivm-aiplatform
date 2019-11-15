@@ -6,7 +6,8 @@ RUN pip3 install --upgrade tensorflow
 RUN pip3 install --upgrade jupyter
 
 RUN mkdir /.local
-RUN chmod a+x /.local
+RUN mkdir /.local/share
+RUN chmod ugo+rwx /.local/share
 
 EXPOSE 8889
 # CMD ["jupyter notebook --port=8889 --no-browser"]
