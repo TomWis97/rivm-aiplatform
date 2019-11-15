@@ -10,6 +10,7 @@ RUN mkdir /.local/share
 RUN chmod ugo+rwx /.local/share
 
 EXPOSE 8889
-# CMD ["jupyter notebook --port=8889 --no-browser"]
+
+CMD ["jupyter notebook --port=8889 --no-browser"]
 # CMD ["sh", "-c", "jupyter notebook --port=8889 --no-browser --ip=*"]
-CMD while true; do sleep 60; done
+# CMD while true; do sleep 60; done
