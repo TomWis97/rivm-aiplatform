@@ -3,7 +3,7 @@ from debian
 RUN apt update
 RUN apt -y install python3-dev python3-pip
 RUN pip3 install --upgrade tensorflow
-RUN pip3 install --upgrade jupyter
+RUN pip3 install --force-reinstall --no-cache-dir jupyter
 
 EXPOSE 8889
 CMD ["jupyter notebook --port=8889 --no-browser"]
