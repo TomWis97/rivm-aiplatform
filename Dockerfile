@@ -9,4 +9,4 @@ RUN apt -y install python3-dev python3-pip
 # RUN pip3 install jupyter
 # RUN jupiter notebook --no-browser
 
-CMD white true; do sleep 60; done
+CMD while true; do sleep 60; done
