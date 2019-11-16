@@ -11,6 +11,6 @@ RUN chmod ugo+rwx /.local/share
 
 EXPOSE 8080
 
-CMD ["/usr/local/bin/jupyter","notebook","--port=8080","--no-browser"]
+# CMD ["/usr/local/bin/jupyter","notebook","--port=8080","--no-browser"]
 # CMD ["sh", "-c", "jupyter notebook --port=8080 --no-browser --ip=*"]
-# CMD while true; do sleep 60; done
+CMD while true; do sleep 60; done
