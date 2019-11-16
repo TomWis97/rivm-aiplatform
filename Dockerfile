@@ -5,7 +5,7 @@ RUN apt -y install python3-dev python3-pip
 RUN pip3 install --upgrade tensorflow
 RUN pip3 install --upgrade jupyter
 
-RUN apt-get install systemd
+RUN apt-get -y install systemd
 
 RUN mkdir /.local
 RUN mkdir /.local/share
