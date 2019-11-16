@@ -5,6 +5,8 @@ RUN apt -y install python3-dev python3-pip
 RUN pip3 install --upgrade tensorflow
 RUN pip3 install --upgrade jupyter
 
+RUN pip3 install --upgrade vi
+
 RUN mkdir /.local
 RUN mkdir /.local/share
 RUN chmod ugo+rwx /.local/share
