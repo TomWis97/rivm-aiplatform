@@ -5,7 +5,15 @@ RUN apt -y install python3-dev python3-pip
 RUN pip3 install --upgrade tensorflow
 RUN pip3 install --upgrade jupyter
 
-RUN apt-get -y install systemd
+# jupyterhub
+RUN apt-get -y install npm nodejs-legacy
+RUN python3 -m pip install jupyterhub
+RUN npm install -g configurable-http-proxy
+RUN python3 -m pip install notebook
+
+RUN jupyterhub -h
+RUN configurable-http-proxy -h
+# jupyterhub
 
 RUN mkdir /.local
 RUN mkdir /.local/share
