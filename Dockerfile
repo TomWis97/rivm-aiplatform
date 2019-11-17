@@ -17,7 +17,7 @@ RUN npm install -g configurable-http-proxy
 
 # de secret is nodig...
 RUN openssl rand -hex 32 > /jupyterhub_cookie_secret
-RUN chmod ugo+rw /jupyterhub_cookie_secret
+RUN chmod ugo+r-wx /jupyterhub_cookie_secret
 
 # jupyterhub end
 
