@@ -11,7 +11,7 @@ RUN apt-get -y install vim
 
 # jupyterhub ######################################################################################
 RUN groupadd -g 999 jupyter && \
-    jupyter -r -u 999 -g jupyter jupyter
+    USERADD -r -u 999 -g jupyter jupyter
 USER jupyter
 
 RUN apt-get -y install npm nodejs
