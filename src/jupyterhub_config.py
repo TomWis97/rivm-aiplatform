@@ -160,9 +160,11 @@ c.JupyterHub.admin_access = True
 #  
 #  Should be exactly 256 bits (32 bytes).
 #c.JupyterHub.cookie_secret = b''
+c.JupyterHub.cookie_secret = b'01234567890123456789AB'
 
 ## File in which to store the cookie secret.
 #c.JupyterHub.cookie_secret_file = 'jupyterhub_cookie_secret'
+c.JupyterHub.cookie_secret_file = '~/jupyterhub_cookie_secret'
 
 ## The location of jupyterhub data files (e.g. /usr/local/share/jupyterhub)
 #c.JupyterHub.data_files_path = '/usr/local/share/jupyterhub'

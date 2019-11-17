@@ -21,8 +21,6 @@ RUN groupadd -g 999 jupyter && \
     useradd -r -u 999 -g jupyter jupyter
 USER jupyter
 
-RUN openssl rand -hex 32 > /jupyterhub_cookie_secret
-
 # jupyterhub end ##################################################################################
 
 # RUN mkdir /.local
