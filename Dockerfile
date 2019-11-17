@@ -17,12 +17,15 @@ RUN npm install -g configurable-http-proxy
 # mogelijkheid voor standalone notebook niet nodig
 # RUN python3 -m pip install notebook
 
-# de secret is nodig...
-RUN openssl rand -hex 32 > /jupyterhub_cookie_secret && \
-	chmod 0600 /jupyterhub_cookie_secret
-
 RUN groupadd -g 999 jupyter && \
     useradd -r -u 999 -g jupyter jupyter
+
+# de secret is nodig...
+RUN openssl rand -hex 32 > /jupyterhub_cookie_secret && \
+	chown jupyter /jupyterhub_cookie_secret && \
+    chmod ugo-rwx
+
+	
 USER jupyter
 
 # jupyterhub end ##################################################################################
