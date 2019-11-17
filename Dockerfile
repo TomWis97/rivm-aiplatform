@@ -6,7 +6,7 @@ RUN pip3 install --upgrade tensorflow
 RUN pip3 install --upgrade jupyter
 
 # jupyterhub
-RUN apt-get install vim  
+RUN apt-get -y install vim  
 
 RUN apt-get -y install npm nodejs
 RUN python3 -m pip install jupyterhub
