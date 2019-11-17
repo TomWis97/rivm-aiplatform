@@ -10,16 +10,17 @@ RUN apt-get -y install vim
 
 
 # jupyterhub ######################################################################################
-RUN groupadd -g 999 jupyter && \
-    useradd -r -u 999 -g jupyter jupyter
-USER jupyter
-
 RUN apt-get -y install npm nodejs
 RUN python3 -m pip install jupyterhub
 RUN npm install -g configurable-http-proxy
 
 # mogelijkheid voor standalone notebook niet nodig
 # RUN python3 -m pip install notebook
+
+RUN groupadd -g 999 jupyter && \
+    useradd -r -u 999 -g jupyter jupyter
+USER jupyter
+
 # jupyterhub end ##################################################################################
 
 RUN mkdir /.local
