@@ -6,15 +6,20 @@ RUN pip3 install --upgrade tensorflow
 RUN pip3 install --upgrade jupyter
 
 # jupyterhub
+RUN apt-get install vim  
+
 RUN apt-get -y install npm nodejs
 RUN python3 -m pip install jupyterhub
 RUN npm install -g configurable-http-proxy
+
+# mogelijkheid voor standalone notebook niet nodig
 # RUN python3 -m pip install notebook
+
+# de secret is nodig...
 RUN openssl rand -hex 32 > /jupyterhub_cookie_secret
 RUN chmod ugo+rw /jupyterhub_cookie_secret
-RUN jupyterhub -h
-RUN configurable-http-proxy -h
-# jupyterhub
+
+# jupyterhub end
 
 RUN mkdir /.local
 RUN mkdir /.local/share
