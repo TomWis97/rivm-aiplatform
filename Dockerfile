@@ -29,10 +29,9 @@ USER jupyter
 
 # jupyterhub ######################################################################################
 # de secret is nodig...
-# RUN openssl rand -hex 32 > /.local/share/jupyterhub_cookie_secret
+RUN openssl rand -hex 32 > ~/jupyterhub_cookie_secret
 # RUN chmod ugo-rwx /.local/share/jupyterhub_cookie_secret
-# RUN openssl rand -hex 32 > /jupyterhub_cookie_secret
-# set config
+# set config file
 COPY src/jupyterhub_config.py ~/jupyterhub_config.py
 # jupyterhub end ##################################################################################
 
