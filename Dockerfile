@@ -6,7 +6,7 @@ RUN pip3 install --upgrade tensorflow
 RUN pip3 install --upgrade jupyter
 
 # jupyterhub
-RUN apt-get -y install npm nodejs-legacy
+RUN apt-get -y install npm nodejs
 RUN python3 -m pip install jupyterhub
 RUN npm install -g configurable-http-proxy
 RUN python3 -m pip install notebook
