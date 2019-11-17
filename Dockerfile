@@ -25,6 +25,12 @@ RUN mkdir /.local
 RUN mkdir /.local/share
 RUN chmod ugo+rwx /.local/share
 
+# jupyterhub
+# set config
+COPY src/jupyterhub_config.py /.local/share/jupyterhub_config.py
+# jupyterhub end
+
+
 EXPOSE 8080
 
 # CMD ["/usr/local/bin/jupyter","notebook","--port=8080","--no-browser"]
