@@ -163,6 +163,7 @@ c.JupyterHub.admin_access = True
 
 ## File in which to store the cookie secret.
 #c.JupyterHub.cookie_secret_file = 'jupyterhub_cookie_secret'
+c.JupyterHub.cookie_secret_file = '/usr/jupyter/jupyterhub_cookie_secret'
 
 ## The location of jupyterhub data files (e.g. /usr/local/share/jupyterhub)
 #c.JupyterHub.data_files_path = '/usr/local/share/jupyterhub'

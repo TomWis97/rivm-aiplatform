@@ -21,11 +21,11 @@ RUN groupadd -g 999 jupyter && \
     useradd -r -u 999 -g jupyter jupyter
 
 # de secret is nodig...
-RUN openssl rand -hex 32 > /jupyterhub_cookie_secret && \
-	chown jupyter /jupyterhub_cookie_secret && \
-    chmod ugo-rwx /jupyterhub_cookie_secret
+RUN mkdir -r /usr/jupyter && \
+	openssl rand -hex 32 > /usr/jupyter/jupyterhub_cookie_secret && \
+    chmod a-rwx u+rw /usr/jupyter/jupyterhub_cookie_secret
+	chown jupyter:jupyter /usr/jupyter/jupyterhub_cookie_secret && \
 
-	
 USER jupyter
 
 # jupyterhub end ##################################################################################
@@ -42,6 +42,7 @@ COPY src/jupyterhub_config.py ~/jupyterhub_config.py
 
 
 EXPOSE 8080
+# jupyterhub --config=~/jupyterhub_config.py
 
 # CMD ["/usr/local/bin/jupyter","notebook","--port=8080","--no-browser"]
 # CMD ["sh", "-c", "jupyter notebook --port=8080 --no-browser --ip=*"]
