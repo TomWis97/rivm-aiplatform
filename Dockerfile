@@ -1,18 +1,18 @@
 FROM debian
 
-RUN apt update
-RUN apt -y install python3-dev python3-pip
-RUN pip3 install --upgrade tensorflow
-RUN pip3 install --upgrade jupyter
+RUN apt update && \
+    apt -y install python3-dev python3-pip && \
+    pip3 install --upgrade tensorflow && \
+    pip3 install --upgrade jupyter
 
 # hulp igv debugging...
 RUN apt-get -y install vim  
 
 
 # jupyterhub ######################################################################################
-RUN apt-get -y install npm nodejs
-RUN python3 -m pip install jupyterhub
-RUN npm install -g configurable-http-proxy
+RUN apt-get -y install npm nodejs && \
+    python3 -m pip install jupyterhub && \
+    npm install -g configurable-http-proxy
 
 # mogelijkheid voor standalone notebook niet nodig
 # RUN python3 -m pip install notebook
@@ -20,7 +20,7 @@ RUN npm install -g configurable-http-proxy
 RUN mkdir -p /usr/jupyter && \
 	openssl rand -hex 32 > /usr/jupyter/jupyterhub_cookie_secret && \
 #     chmod a-rwx /usr/jupyter && \
-    chmod 0600 /usr/jupyter/jupyterhub_cookie_secret
+    chmod 0660 /usr/jupyter/jupyterhub_cookie_secret
 
 COPY src/jupyterhub_config.py /usr/jupyter/jupyterhub_config.py
 
