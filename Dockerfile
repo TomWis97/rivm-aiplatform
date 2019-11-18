@@ -20,7 +20,7 @@ RUN npm install -g configurable-http-proxy
 RUN mkdir -p /usr/jupyter && \
 	openssl rand -hex 32 > /usr/jupyter/jupyterhub_cookie_secret && \
     chmod a-rwx /usr/jupyter && \
-    chmod g+rw /usr/jupyter && \
+    chmod g+rw /usr/jupyter
 
 COPY src/jupyterhub_config.py /usr/jupyter/jupyterhub_config.py
 
