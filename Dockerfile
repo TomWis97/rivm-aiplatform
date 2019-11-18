@@ -29,7 +29,7 @@ RUN mkdir -p /usr/jupyter && \
 
 COPY src/jupyterhub_config.py /usr/jupyter/jupyterhub_config.py
 
-USER jupyter
+USER jupyter:jupyter
 
 # jupyterhub end ##################################################################################
 
