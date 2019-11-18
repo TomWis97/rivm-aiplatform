@@ -17,19 +17,12 @@ RUN npm install -g configurable-http-proxy
 # mogelijkheid voor standalone notebook niet nodig
 # RUN python3 -m pip install notebook
 
-RUN groupadd -r jupyter && \
-    useradd --no-log-init -r -g jupyter jupyter
-
-# de secret is nodig...
 RUN mkdir -p /usr/jupyter && \
 	openssl rand -hex 32 > /usr/jupyter/jupyterhub_cookie_secret && \
-    chmod a-rwx /usr/jupyter/jupyterhub_cookie_secret && \
-    chmod u+rw /usr/jupyter/jupyterhub_cookie_secret && \
-	chown jupyter:jupyter /usr/jupyter/jupyterhub_cookie_secret
+    chmod a-rwx /usr/jupyter && \
+    chmod g+rw /usr/jupyter && \
 
 COPY src/jupyterhub_config.py /usr/jupyter/jupyterhub_config.py
-
-USER jupyter:jupyter
 
 # jupyterhub end ##################################################################################
 
