@@ -27,6 +27,8 @@ RUN mkdir -p /usr/jupyter && \
     chmod u+rw /usr/jupyter/jupyterhub_cookie_secret && \
 	chown jupyter:jupyter /usr/jupyter/jupyterhub_cookie_secret
 
+COPY src/jupyterhub_config.py /usr/jupyter/jupyterhub_config.py
+
 USER jupyter
 
 # jupyterhub end ##################################################################################
@@ -38,12 +40,11 @@ USER jupyter
 # jupyterhub ######################################################################################
 # RUN chmod ugo-rwx /.local/share/jupyterhub_cookie_secret
 # set config file
-COPY src/jupyterhub_config.py ~/jupyterhub_config.py
 # jupyterhub end ##################################################################################
 
 
 EXPOSE 8080
-# jupyterhub --config=~/jupyterhub_config.py
+# jupyterhub -f /usr/jupyter/jupyterhub_config.py
 
 # CMD ["/usr/local/bin/jupyter","notebook","--port=8080","--no-browser"]
 # CMD ["sh", "-c", "jupyter notebook --port=8080 --no-browser --ip=*"]
