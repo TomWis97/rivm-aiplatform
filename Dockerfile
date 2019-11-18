@@ -21,7 +21,7 @@ RUN groupadd -g 999 jupyter && \
     useradd -r -u 999 -g jupyter jupyter
 
 # de secret is nodig...
-RUN mkdir -r /usr/jupyter && \
+RUN mkdir -p /usr/jupyter && \
 	openssl rand -hex 32 > /usr/jupyter/jupyterhub_cookie_secret && \
     chmod a-rwx u+rw /usr/jupyter/jupyterhub_cookie_secret && \
 	chown jupyter:jupyter /usr/jupyter/jupyterhub_cookie_secret
